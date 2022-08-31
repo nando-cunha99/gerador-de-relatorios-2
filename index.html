@@ -7,62 +7,64 @@
 </head>
 
 <body>
-    <div id='divTitulo'>
-        <h1 id='titulo'>Gerador de Relatórios</h1>
-          <span id='informativo'>Informações com * são obrigatórias</span>
-        </div>
-        
-        <div id='divForm'>
-          <form id='form'>
-            <label for='relatorio'>Relatório:</label>
-            <input type='radio' class='relatorio' name='relatorio' value='rela1'>Relatorio 1
-            <input type='radio' class='relatorio' name='relatorio' value='rela2'>Relatorio 2
-            <input type='radio' class='relatorio' name='relatorio' value='rela3'>Relatorio 3
-            *
-            <br>
-            
-            <label for='hora'>Hora:</label>
-            <input type='time' name='hora' id= 'hora'>
-            *
-            <br>
-            
-            <label for='local'>Local:</label>
-            <input type='search' name='local' id='local' list='listaLocal'>
-            <datalist id='listaLocal'></datalist>
-            *
-            <br>
-            
-            <label for='funcionario'>Funcionário:</label>
-            <input type='search' name='funcionario' id='funcionario' list='listaFuncionario'>
-            <datalist id='listaFuncionario'></datalist>
-            <br>
-            
-            <label for='informacao'>Informação:</label>
-            <input type='radio' name='informacao' id='informacao' value='sem-anormalidades'>Sem anormalidades
-            <input type='radio' name='informacao' id='outro' value='outro'>Outro
-            <br>
-            <textarea placeholder='outro' cols='45' rows='8' id='textbox'></textarea>
-            <br>
-            <input type='file' id='imagem' accept='image/*'>
-            <br>
-            <button type='button' class='button' id='gera-relatorio'>Gerar Relatório</button>
-            <br>
-            <input type='reset' id='botaoReset' value='reset'> 
-          </form>
-        </div>
-          
-        <div id='divRelatorio'>
-          <div id='tabelaRelatorio'>
-            <table>
-          </div>
-          <div id=botaoCopiar>
-            <button type='button' id='copiar'>
-              <svg viewBox='0 0 512 512'>
-                <path d='M130.152,90.648H51.565V512h232.008l82.083-82.083h94.78V0H130.152V90.648z M293.354,454.998v-25.08h25.08
-                    L293.354,454.998z M342.045,396.526h-82.082v82.083H84.956V124.04h257.09V396.526z M163.543,33.391h263.502v363.135h-51.609
-                         V90.648H163.543V33.391z'></path>
-              </svg>
-            </button>
-          </div>
-        </div>
+  <div id='divTitulo'>
+    <h1 id='titulo'>Gerador de Relatórios</h1>
+    <span id='informativo'>Informações com * são obrigatórias</span>
+  </div>
+  
+  <div id='divForm'>
+    <form id='form'>
+      <label for='relatorio'>Relatório:</label>
+      <input type='radio' class='relatorio' name='relatorio' value='rela1'>Relatorio 1
+      <input type='radio' class='relatorio' name='relatorio' value='rela2'>Relatorio 2
+      <input type='radio' class='relatorio' name='relatorio' value='rela3'>Relatorio 3
+      *
+      <br>
+  
+      <label for='hora'>Hora:</label>
+      <input type='time' name='hora' id='hora'>
+      *
+      <br>
+  
+      <label for='local'>Local:</label>
+      <input type='search' name='local' id='local' list='listaLocal'>
+      <datalist id='listaLocal'></datalist>
+      *
+      <br>
+  
+      <label for='funcionario'>Funcionário:</label>
+      <input type='search' name='funcionario' id='funcionario' list='listaFuncionario'>
+      <datalist id='listaFuncionario'></datalist>
+      <br>
+  
+      <label for='informacao'>Informação:</label>
+      <input type='radio' name='informacao' id='sem-novidades' value='sem-anormalidades'>Sem anormalidades
+      <input type='radio' name='informacao' id='outro' value='outro'>Outro
+      <br>
+      <textarea placeholder='outro' cols='45' rows='8' id='textbox'></textarea>
+      <br>
+      <input type='file' id='imagem' accept='image/*'>
+      <br>
+      <button type='button' class='button' id='gera-relatorio'>Gerar Relatório</button>
+      <br>
+      <input type='reset' id='botaoReset' value='reset'>
+    </form>
+  </div>
+  
+  <div id='divRelatorio'>
+    <div id='tabelaRelatorio'>
+      <table>
+    </div>
+    <div id=botaoCopiar>
+      <button type='button' id='copiar'>
+        <svg viewBox='0 0 512 512'>
+          <path d='M130.152,90.648H51.565V512h232.008l82.083-82.083h94.78V0H130.152V90.648z M293.354,454.998v-25.08h25.08
+        L293.354,454.998z M342.045,396.526h-82.082v82.083H84.956V124.04h257.09V396.526z M163.543,33.391h263.502v363.135h-51.609
+                   V90.648H163.543V33.391z'></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+      <script src="script.js"></script>
 </body>
