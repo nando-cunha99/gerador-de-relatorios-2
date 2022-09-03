@@ -20,7 +20,7 @@ const botaoReset = document.querySelector("#botaoReset");
 
 const divRelatorio = document.querySelector("#divRelatorio");
 
-const tabelaRelatorio = document.querySelector("#tabelaRelatorio");
+const tabelaRelatorio = document.querySelector("#tabela");
 
 const locaisRela1 = ["Local A", "Local B", "Local C"];
 
@@ -108,44 +108,40 @@ function habilitaLimpaPagina() {
 }
 
 //Alinha o relatorio junto das informações
-function montaRelatorio(
-  linhaDeCima,
-  header,
-  linhaDeBaixo,
-  dadosRelatorio,
-  divDoRelatorio
-) {
-  divDoRelatorio.appendChild(linhaDeCima);
-  linhaDeCima.appendChild(header);
-  divDoRelatorio.appendChild(linhaDeBaixo);
-  linhaDeBaixo.appendChild(dadosRelatorio);
+function montaRelatorio(array) {
+  let linhaDoHeader = document.createElement("tr");
+  let headerNome = document.createElement("th");
+  let linhaDosDados = document.createElement("tr");
+  let dadosRelatorio = document.createElement("td");
+  let textoSemNovidades = `<b>${inputHora.value}:</b> Apoio <b>${inputFuncionario.value}</b> no local que informa estar sem anormalidades.`;
+  
+  tabelaRelatorio.appendChild(linhaDoHeader);
+  linhaDoHeader.appendChild(headerNome);
+  tabelaRelatorio.appendChild(linhaDosDados);
+  linhaDosDados.appendChild(dadosRelatorio);
 
-  header.innerHTML = inputLocal.value;
-
+  headerNome.innerHTML = inputLocal.value;
+  
+  switch (array[3].value) {
+      case 'sem-anormalidades':
+      dadosRelatorio.innerHTML = textoSemNovidades;
+      break;
+      case 'outro':
+      dadosRelatorio.innerHTML = textbox.value;
+      }
+  
+  let imagemQueRecebeOFile = document.createElement("img");
   let reader = new FileReader();
   reader.addEventListener("load", () => {
-    imagemQueRecebeOFile.src = reader.result;
-    dadosRelatorio.innerHTML = inputInformaçaoValida.value;
+    imagemQueRecebeOFile.src = reader.result;    
     dadosRelatorio.appendChild(imagemQueRecebeOFile);
   });
   reader.readAsDataURL(inputImagem.files[0]);
-}
-
-//Define valor da informacao
-function defineValorRelatorio(informacao, array) {
-  while (informacao.value === informacao[1].value) {
-    informacao.value = textbox.value;
-    break;
-  }
-
-  while (informacao.value === informacao.item(0).value) {
-    informacao.value = `<b>${inputHora.value}:</b> Apoio <b>${inputFuncionario.value}</b> no local que informa estar sem anormalidades.`;
-    break;
-  }
+  imagemQueRecebeOFile.classList.add('imagem')
 }
 
 //Aparece mensagem de erro caso algum valor seja inválido
-function verificaArray(array, informacao) {
+function verificaArray(array) {
   let inputsValidos = true;
   for (let contador = 0; contador < array.length; contador++) {
     if (!array[contador] || array[contador].value === "") {
@@ -156,8 +152,7 @@ function verificaArray(array, informacao) {
     alert("FAVOR INSERIR DADOS VALIDOS");
   } else {
     do {
-      defineValorRelatorio(informacao, array);
-      console.log(informacao);
+      montaRelatorio(array);
       break;
     } while (inputsValidos);
   }
@@ -165,18 +160,11 @@ function verificaArray(array, informacao) {
 
 //cria os elementos da tabela
 function criaTabela() {
-  let linhaDoHeader = document.createElement("tr");
-  let headerNome = document.createElement("th");
-  let linhaDosDaods = document.createElement("tr");
-  let dadosRelatorio = document.createElement("td");
   let inputRelatorioValido = document.querySelector(
     'input[name="relatorio"]:checked'
   );
-  let inputInformaçaoValida = document.querySelector(
-    'input[name="informacao"]:checked'
-  );
+  let inputInformaçaoValida = document.querySelector('input[name="informacao"]:checked');
 
-  let imagemQueRecebeOFile = document.createElement("img");
   let inputImagemFile = document.querySelector('input[type="file"]').files[0];
 
   let arrayComTodosInputsObrigatorios = new Array(
@@ -186,14 +174,7 @@ function criaTabela() {
     inputInformaçaoValida
   );
 
-  verificaArray(arrayComTodosInputsObrigatorios, inputInformaçaoValida);
-  montaRelatorio(
-    linhaDoHeader,
-    headerNome,
-    linhaDosDaods,
-    dadosRelatorio,
-    tabelaRelatorio
-  );
+  verificaArray(arrayComTodosInputsObrigatorios);
 }
 
 botaoGerador.addEventListener("click", criaTabela);

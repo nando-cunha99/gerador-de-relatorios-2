@@ -1,96 +1,119 @@
 body {
 	background-image: linear-gradient(to left, #add8e6, #b3d5e0, #fafdfe);
 	font-family: verdana, genenva, arial, sans-serif;
-}
-
-#divTitulo{
-    padding-bottom: 0.8em;
-}
-
-#divTitulo #titulo{
-  margin-bottom: 0.3em;
-}
-
-input {
+  }
+  
+  #divTitulo {
+	padding-bottom: 0.8em;
+  }
+  
+  #divTitulo #titulo {
+	margin-bottom: 0.3em;
+  }
+  
+  input {
 	padding: 3px;
 	margin: 4px;
 	border: 2px solid black;
 	border-radius: 6%;
 	box-shadow: 2px 2px #2f4f4f;
 	cursor: pointer;
-}
-
-label {
+  }
+  
+  label {
 	font-size: 1.3rem;
 	font-weight: bold;
 	margin-bottom: 1.5rem;
-}
-
-#textbox {
+  }
+  
+  #textbox {
 	margin: 2px;
 	border: 3px solid black;
 	box-shadow: 2px 2px #2f4f4f;
-}
-
-input:focus{
+  }
+  
+  input:focus {
 	border-color: blue;
 	outline-style: groove;
 	outline-color: blue;
-}
-
-#imagem:hover {
-  cursor: pointer;
-}
-
-#divTitulo #informativo{
-  font-size: 0.7em;
-}
-
-#gera-relatorio {
-		width: 260px;
-		height: 50px; 
-		margin-bottom: 4px;
-		margin-top: 5px;
-		border: 3px solid black;
-		border-radius: 4%;
-		font-size: 21px;
-		font-weight: bold;
-		text-shadow: 1px 1px 1px 1px #fafdfe;
-		background-color: #fafdfe;
-		box-shadow: 2px 2px #2f4f4f;
-		cursor: pointer; 
-}
-
-#gera-relatorio:hover{
-  width: 265px;
-  height: 60px;
-  font-size: 1.5em;
-  box-shadow: 0;
-  outline-style: groove;
-  outline-color: blue;
-}
-
-#botaoReset {
+  }
+  
+  #imagem:hover {
+	cursor: pointer;
+  }
+  
+  #divTitulo #informativo {
+	font-size: 0.7em;
+  }
+  
+  #gera-relatorio {
+	width: 260px;
+	height: 50px;
+	margin-bottom: 4px;
+	margin-top: 5px;
+	border: 3px solid black;
+	border-radius: 4%;
+	font-size: 21px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px 1px #fafdfe;
+	background-color: #fafdfe;
+	box-shadow: 2px 2px #2f4f4f;
+	cursor: pointer;
+  }
+  
+  #gera-relatorio:hover {
+	width: 265px;
+	height: 60px;
+	font-size: 1.5em;
+	box-shadow: 0;
+	outline-style: groove;
+	outline-color: blue;
+  }
+  
+  #botaoReset {
 	width: 250px;
 	height: 30px;
 	text-align: center;
-  margin-bottom: 15px;
-}
-
-#botaoReset:hover {
-  width: 253px;
-  height: 33px;
-  font-size: 1.1em;
-  outline-style: groove;
-  outline-color: blue;
-}
-
-#copiar {
-  width: 5em;
-  border: none;
-  background-color: rgb(179, 213, 224, 0.3);
-}
-
-#copiar:hover {
-  cursor: pointer;
-}
+	margin-bottom: 15px;
+  }
+  
+  #botaoReset:hover {
+	width: 253px;
+	height: 33px;
+	font-size: 1.1em;
+	outline-style: groove;
+	outline-color: blue;
+  }
+  
+  #copiar {
+	width: 5em;
+	border: none;
+	background-color: rgb(179, 213, 224, 0.3);
+  }
+  
+  #copiar:hover {
+	cursor: pointer;
+  }
+  
+  #divRelatorio {
+	display: flex;
+  }
+  
+  #tabela{
+	margin-top: 2em;
+	border: 1px solid black;
+  }
+  
+  td{
+	text-align: justify;
+	max-width: 50%;
+	width: 230px;
+	height: 230px;
+  }
+  
+  .imagem {
+	 display: flex;
+	 margin: auto;
+	 width: 188px;
+	 height: 188px;
+  }
