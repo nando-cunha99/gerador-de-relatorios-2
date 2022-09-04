@@ -96,21 +96,35 @@ body {
   }
   
   #divRelatorio {
-	display: flex;
+	  display: flex;
+  }
+
+  #relatorioTabulado {
+    display: flex;
+    flex-flow: wrap;
+    gap: 0px;
+    width: 480px;
+  
+  }
+
+  .containerRelatorio{
+    width: 50%;
   }
   
-  #tabela{
-	margin-top: 2em;
-	border: 1px solid black;
+  .headerRelatorio {
+    text-align: center;
+    border: 2px solid black;
+    width: 230px;
+
   }
   
-  td{
-	text-align: justify;
-	max-width: 50%;
-	width: 230px;
-	height: 230px;
+  .informacoesRelatorio{
+    border: 2px solid black;
+    text-align: center;
+    width: 230px;
+
   }
-  
+    
   .imagem {
 	 display: flex;
 	 margin: auto;
