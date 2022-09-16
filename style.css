@@ -97,14 +97,13 @@ body {
   
   #divRelatorio {
 	  display: flex;
+    width: 2400px;
   }
 
   #relatorioTabulado {
     display: flex;
     flex-flow: wrap;
-    gap: 0px;
-    width: 480px;
-  
+    width: 600px
   }
 
   .containerRelatorio{
@@ -114,20 +113,23 @@ body {
   .headerRelatorio {
     text-align: center;
     border: 2px solid black;
-    width: 230px;
+    width: 100%;
 
   }
   
   .informacoesRelatorio{
     border: 2px solid black;
     text-align: center;
-    width: 230px;
-
+    width: 100%
   }
     
   .imagem {
 	 display: flex;
 	 margin: auto;
-	 width: 188px;
-	 height: 188px;
+	 width: 80%;
+	 height: 60%;
   }
+
+.hide {
+  display: none;
+}

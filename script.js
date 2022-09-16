@@ -1,3 +1,5 @@
+window.jsPDF = window.jspdf.jsPDF
+
 const inputRelatorio = document.querySelectorAll('input[name="relatorio"]');
 
 const inputHora = document.querySelector("#hora");
@@ -37,6 +39,10 @@ const funcionariosRela1 = ["Michael Jordan", "Magic Johnson", "Dennis Rodman"];
 const funcionariosRela2e3 = ["Lebron James", "Carmelo Anthony", "Kobe Bryant"];
 
 const inputImagem = document.querySelector("#imagem");
+
+const botaoCopiar = document.querySelector('#copiar');
+
+//const botaoPdf = document.querySelector('#gera-pdf');
 
 textbox.disabled = true;
 
@@ -138,7 +144,10 @@ function montaRelatorio(array) {
     elementoInferior.appendChild(imagemQueRecebeOFile);
   });
   reader.readAsDataURL(inputImagem.files[0]);
-  imagemQueRecebeOFile.classList.add('imagem')
+  imagemQueRecebeOFile.classList.add('imagem');
+  botaoCopiar.classList.remove('hide');
+  
+  
 }
 
 //Aparece mensagem de erro caso algum valor seja inválido
@@ -179,3 +188,28 @@ function criaTabela() {
 }
 
 botaoGerador.addEventListener("click", criaTabela);
+
+botaoCopiar.addEventListener("click", () =>{
+     navigator.clipboard.writeText(relatorioTabulado.innerHTML)
+});
+
+//Gerar PDF
+
+function geraPdf(idDaDiv) {
+  const doc = new jsPDF();
+  
+  doc.html(idDaDiv.innerHTML, 15, 15)/
+    
+  doc.output(relaronda);
+}
+
+//botaoPdf.addEventListener("click", () =>{
+ //import { jsPDF } from "https://cdn.skypack.dev/jspdf@2.5.1";
+
+// Default export is a4 paper, portrait, using millimeters for units
+//const doc = new jsPDF();
+
+//doc.text("Hello world!", 10, 10);
+//doc.output("a4.pdf");
+//  console.log('clicou');
+//});
