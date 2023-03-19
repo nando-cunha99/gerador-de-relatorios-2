@@ -1,5 +1,3 @@
-window.jsPDF = window.jspdf.jsPDF
-
 const inputRelatorio = document.querySelectorAll('input[name="relatorio"]');
 
 const inputHora = document.querySelector("#hora");
@@ -27,12 +25,6 @@ const relatorioTabulado = document.querySelector("#relatorioTabulado");
 const locaisRela1 = ["Local A", "Local B", "Local C"];
 
 const locaisRela2e3 = ["Local 1", "Local 2", "Local 3"];
-
-const locaisGiardino = [
-  "Estabelecimento 1",
-  "Estabelecimento 2",
-  "Estabelecimento 3"
-];
 
 const funcionariosRela1 = ["Michael Jordan", "Magic Johnson", "Dennis Rodman"];
 
@@ -192,24 +184,3 @@ botaoGerador.addEventListener("click", criaTabela);
 botaoCopiar.addEventListener("click", () =>{
      navigator.clipboard.writeText(relatorioTabulado.innerHTML)
 });
-
-//Gerar PDF
-
-function geraPdf(idDaDiv) {
-  const doc = new jsPDF();
-  
-  doc.html(idDaDiv.innerHTML, 15, 15)/
-    
-  doc.output(relaronda);
-}
-
-//botaoPdf.addEventListener("click", () =>{
- //import { jsPDF } from "https://cdn.skypack.dev/jspdf@2.5.1";
-
-// Default export is a4 paper, portrait, using millimeters for units
-//const doc = new jsPDF();
-
-//doc.text("Hello world!", 10, 10);
-//doc.output("a4.pdf");
-//  console.log('clicou');
-//});
