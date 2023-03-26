@@ -177,4 +177,15 @@ function criaTabela() {
   verificaArray(arrayComTodosInputsObrigatorios);
 }
 
+//Reseta toda a página
+function limpaPagina () {
+  botaoReset.disabled = true;
+  verificaLista(divRelatorio);
+  verificaLista(botaoCopiar)
+}
+
 botaoGerador.addEventListener("click", criaTabela);
+
+botaoGerador.addEventListener('click', habilitaLimpaPagina);
+
+botaoReset.addEventListener('click', limpaPagina);
