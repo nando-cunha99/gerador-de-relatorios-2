@@ -85,13 +85,13 @@ body {
 	outline-color: blue;
   }
   
-  #copiar {
-	width: 5em;
+  #pdf {
+	width: 5rem;
 	border: none;
 	background-color: rgb(179, 213, 224, 0.3);
   }
   
-  #copiar:hover {
+  #pdf:hover {
 	cursor: pointer;
   }
   

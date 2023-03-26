@@ -32,7 +32,7 @@ const funcionariosRela2e3 = ["Lebron James", "Carmelo Anthony", "Kobe Bryant"];
 
 const inputImagem = document.querySelector("#imagem");
 
-const botaoCopiar = document.querySelector('#copiar');
+const botaoPdf = document.querySelector('#pdf');
 
 textbox.disabled = true;
 
@@ -135,7 +135,7 @@ function montaRelatorio(array) {
   });
   reader.readAsDataURL(inputImagem.files[0]);
   imagemQueRecebeOFile.classList.add('imagem');
-  botaoCopiar.classList.remove('hide');
+  botaoPdf.classList.remove('hide');
   
   
 }
@@ -180,8 +180,8 @@ function criaTabela() {
 //Reseta toda a página
 function limpaPagina () {
     botaoReset.disabled = true;
-    verificaLista(divRelatorio);
-    verificaLista(botaoCopiar)
+    verificaLista(relatorioTabulado);
+    verificaLista(botaoPdf)
 }
 
 botaoGerador.addEventListener("click", criaTabela);
@@ -189,7 +189,3 @@ botaoGerador.addEventListener("click", criaTabela);
 botaoGerador.addEventListener('click', habilitaLimpaPagina);
 
 botaoReset.addEventListener('click', limpaPagina);
-
-botaoCopiar.addEventListener("click", () =>{
-     navigator.clipboard.writeText(relatorioTabulado.innerHTML)
-});
