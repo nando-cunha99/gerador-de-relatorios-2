@@ -34,8 +34,6 @@ const inputImagem = document.querySelector("#imagem");
 
 const botaoCopiar = document.querySelector('#copiar');
 
-//const botaoPdf = document.querySelector('#gera-pdf');
-
 textbox.disabled = true;
 
 botaoReset.disabled = true;
@@ -96,14 +94,14 @@ function habilitaTextbox() {
   }
 }
 
+//Habilita o botão de limpar página.
+function habilitaLimpaPagina() {
+    botaoReset.disabled = false;
+}
+
 inputInformaçao[0].addEventListener("click", habilitaTextbox);
 
 inputInformaçao[1].addEventListener("click", habilitaTextbox);
-
-//Habilita o botão de limpar página.
-function habilitaLimpaPagina() {
-  botaoReset.disabled = false;
-}
 
 //Alinha o relatorio junto das informações
 function montaRelatorio(array) {
@@ -179,18 +177,11 @@ function criaTabela() {
   verificaArray(arrayComTodosInputsObrigatorios);
 }
 
-
-botaoGerador.addEventListener("click", criaTabela);
-
-botaoCopiar.addEventListener("click", () =>{
-     navigator.clipboard.writeText(relatorioTabulado.innerHTML)
-});
-
 //Reseta toda a página
 function limpaPagina () {
-  botaoReset.disabled = true;
-  verificaLista(divRelatorio);
-  verificaLista(botaoCopiar)
+    botaoReset.disabled = true;
+    verificaLista(divRelatorio);
+    verificaLista(botaoCopiar)
 }
 
 botaoGerador.addEventListener("click", criaTabela);
@@ -198,3 +189,7 @@ botaoGerador.addEventListener("click", criaTabela);
 botaoGerador.addEventListener('click', habilitaLimpaPagina);
 
 botaoReset.addEventListener('click', limpaPagina);
+
+botaoCopiar.addEventListener("click", () =>{
+     navigator.clipboard.writeText(relatorioTabulado.innerHTML)
+});
