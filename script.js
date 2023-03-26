@@ -179,8 +179,22 @@ function criaTabela() {
   verificaArray(arrayComTodosInputsObrigatorios);
 }
 
+
 botaoGerador.addEventListener("click", criaTabela);
 
 botaoCopiar.addEventListener("click", () =>{
      navigator.clipboard.writeText(relatorioTabulado.innerHTML)
 });
+
+//Reseta toda a página
+function limpaPagina () {
+  botaoReset.disabled = true;
+  verificaLista(divRelatorio);
+  verificaLista(botaoCopiar)
+}
+
+botaoGerador.addEventListener("click", criaTabela);
+
+botaoGerador.addEventListener('click', habilitaLimpaPagina);
+
+botaoReset.addEventListener('click', limpaPagina);
