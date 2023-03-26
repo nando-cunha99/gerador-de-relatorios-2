@@ -96,24 +96,40 @@ body {
   }
   
   #divRelatorio {
-	display: flex;
+	  display: flex;
+    width: 2400px;
+  }
+
+  #relatorioTabulado {
+    display: flex;
+    flex-flow: wrap;
+    width: 600px
+  }
+
+  .containerRelatorio{
+    width: 50%;
   }
   
-  #tabela{
-	margin-top: 2em;
-	border: 1px solid black;
+  .headerRelatorio {
+    text-align: center;
+    border: 2px solid black;
+    width: 100%;
+
   }
   
-  td{
-	text-align: justify;
-	max-width: 50%;
-	width: 230px;
-	height: 230px;
+  .informacoesRelatorio{
+    border: 2px solid black;
+    text-align: center;
+    width: 100%
   }
-  
+    
   .imagem {
 	 display: flex;
 	 margin: auto;
-	 width: 188px;
-	 height: 188px;
+	 width: 80%;
+	 height: 60%;
   }
+
+.hide {
+  display: none;
+}

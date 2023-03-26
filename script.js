@@ -20,23 +20,21 @@ const botaoReset = document.querySelector("#botaoReset");
 
 const divRelatorio = document.querySelector("#divRelatorio");
 
-const tabelaRelatorio = document.querySelector("#tabela");
+const relatorioTabulado = document.querySelector("#relatorioTabulado");
 
 const locaisRela1 = ["Local A", "Local B", "Local C"];
 
 const locaisRela2e3 = ["Local 1", "Local 2", "Local 3"];
-
-const locaisGiardino = [
-  "Estabelecimento 1",
-  "Estabelecimento 2",
-  "Estabelecimento 3"
-];
 
 const funcionariosRela1 = ["Michael Jordan", "Magic Johnson", "Dennis Rodman"];
 
 const funcionariosRela2e3 = ["Lebron James", "Carmelo Anthony", "Kobe Bryant"];
 
 const inputImagem = document.querySelector("#imagem");
+
+const botaoCopiar = document.querySelector('#copiar');
+
+//const botaoPdf = document.querySelector('#gera-pdf');
 
 textbox.disabled = true;
 
@@ -109,35 +107,39 @@ function habilitaLimpaPagina() {
 
 //Alinha o relatorio junto das informações
 function montaRelatorio(array) {
-  let linhaDoHeader = document.createElement("tr");
-  let headerNome = document.createElement("th");
-  let linhaDosDados = document.createElement("tr");
-  let dadosRelatorio = document.createElement("td");
+  let blocoRelatorio = document.createElement("div");
+  blocoRelatorio.classList.add('containerRelatorio')
+  let elementoSuperior = document.createElement("div");
+  elementoSuperior.classList.add('headerRelatorio')
+  let elementoInferior = document.createElement("div");
+  elementoInferior.classList.add('informacoesRelatorio')
   let textoSemNovidades = `<b>${inputHora.value}:</b> Apoio <b>${inputFuncionario.value}</b> no local que informa estar sem anormalidades.`;
   
-  tabelaRelatorio.appendChild(linhaDoHeader);
-  linhaDoHeader.appendChild(headerNome);
-  tabelaRelatorio.appendChild(linhaDosDados);
-  linhaDosDados.appendChild(dadosRelatorio);
+  relatorioTabulado.appendChild(blocoRelatorio);
+  blocoRelatorio.appendChild(elementoSuperior);
+  blocoRelatorio.appendChild(elementoInferior);
 
-  headerNome.innerHTML = inputLocal.value;
+  elementoSuperior.innerHTML = inputLocal.value;
   
   switch (array[3].value) {
       case 'sem-anormalidades':
-      dadosRelatorio.innerHTML = textoSemNovidades;
+        elementoInferior.innerHTML = textoSemNovidades;
       break;
       case 'outro':
-      dadosRelatorio.innerHTML = textbox.value;
+        elementoInferior.innerHTML = textbox.value;
       }
   
   let imagemQueRecebeOFile = document.createElement("img");
   let reader = new FileReader();
   reader.addEventListener("load", () => {
     imagemQueRecebeOFile.src = reader.result;    
-    dadosRelatorio.appendChild(imagemQueRecebeOFile);
+    elementoInferior.appendChild(imagemQueRecebeOFile);
   });
   reader.readAsDataURL(inputImagem.files[0]);
-  imagemQueRecebeOFile.classList.add('imagem')
+  imagemQueRecebeOFile.classList.add('imagem');
+  botaoCopiar.classList.remove('hide');
+  
+  
 }
 
 //Aparece mensagem de erro caso algum valor seja inválido
@@ -176,6 +178,13 @@ function criaTabela() {
 
   verificaArray(arrayComTodosInputsObrigatorios);
 }
+
+
+botaoGerador.addEventListener("click", criaTabela);
+
+botaoCopiar.addEventListener("click", () =>{
+     navigator.clipboard.writeText(relatorioTabulado.innerHTML)
+});
 
 //Reseta toda a página
 function limpaPagina () {
